@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f8f58">
     <title>الروابط الموثوقة لمواطني قطاع غزة</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         :root {
             --primary: #16a064;
@@ -127,10 +134,10 @@
         }
 
         .visits-counter-number {
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
             font-size: 1.18rem;
             font-weight: 700;
-            letter-spacing: 0;
+            letter-spacing: -0.02em;
         }
 
         .visits-counter-card.is-updating .visits-counter-icon {
@@ -139,11 +146,11 @@
 
         h1 {
             margin: 18px 0 10px;
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
             font-size: clamp(1.65rem, 4vw, 2.7rem);
             line-height: 1.5;
             color: var(--ink);
-            letter-spacing: 0;
+            letter-spacing: -0.04em;
         }
 
         .hero-text {
@@ -262,7 +269,7 @@
         .card:hover {
             transform: translateY(-6px);
             border-color: rgba(22, 160, 100, 0.45);
-            box-shadow: 0 14px 28px rgba(22, 50, 71, 0.10);
+            box-shadow: 0 22px 48px rgba(22, 50, 71, 0.14);
         }
 
         .new-label {
@@ -287,18 +294,13 @@
             margin: 18px 0 18px;
             padding-left: 62px;
             color: #0d8b57;
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
             font-size: 1.05rem;
             font-weight: 700;
             line-height: 1.9;
         }
 
         .card:not(.new-card) .card-title { padding-left: 0; }
-
-        .card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
 
         .card-actions {
             margin-top: auto;
@@ -367,7 +369,7 @@
             background: rgba(255,255,255,0.86);
             border: 1px solid rgba(22, 160, 100, 0.18);
             box-shadow: var(--shadow);
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif;
             font-weight: 700;
         }
 
@@ -500,23 +502,6 @@
                 font-size: 0.95rem;
             }
         }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .hero,
-            .toolbar,
-            .footer-card,
-            .card {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
         @media (max-width: 380px) {
             .summary-row {
                 font-size: 0.76rem;
@@ -528,239 +513,20 @@
                 gap: 4px;
             }
         }
-        /* Lightweight overrides: no external fonts, softer paint cost, progressive card reveal. */
-        :root {
-            --card: #ffffff;
-            --shadow: 0 10px 24px rgba(22, 50, 71, 0.08);
-            --radius: 18px;
-            --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            background: linear-gradient(180deg, #f8fbf9 0%, #eef6f1 100%);
-        }
-
-        .hero {
-            border-radius: 24px;
-            background: linear-gradient(135deg, #ffffff, #effbf5);
-            box-shadow: var(--shadow);
-            animation: topIn 0.5s var(--ease) 0.04s both;
-        }
-
-        .toolbar {
-            backdrop-filter: none;
-            box-shadow: 0 8px 22px rgba(22, 50, 71, 0.06);
-            animation: topIn 0.45s var(--ease) 0.14s both;
-        }
-
-        .summary-row,
-        .footer-card {
-            animation: topIn 0.45s var(--ease) 0.22s both;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            box-shadow: 0 8px 20px rgba(22, 50, 71, 0.06);
-            animation: none;
-            content-visibility: auto;
-            contain-intrinsic-size: 220px;
-            opacity: 0;
-            transform: translateY(18px);
-            transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card:hover {
-            box-shadow: 0 14px 28px rgba(22, 50, 71, 0.10);
-        }
-
-        .welcome-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-            background: rgba(15, 32, 42, 0.34);
-        }
-
-        .welcome-overlay.is-visible { display: flex; }
-
-        .welcome-dialog {
-            width: min(460px, 100%);
-            padding: 26px 24px 22px;
-            border-radius: 20px;
-            background: #fff;
-            border: 1px solid rgba(22, 160, 100, 0.18);
-            box-shadow: 0 16px 34px rgba(15, 32, 42, 0.16);
-            text-align: center;
-            animation: dialogIn 0.28s var(--ease) both;
-        }
-
-        .welcome-title {
-            margin: 0 0 10px;
-            color: var(--primary-dark);
-            font-size: 1.45rem;
-            font-weight: 500;
-        }
-
-        .welcome-message {
-            margin: 0 0 18px;
-            color: var(--ink);
-            font-size: 1rem;
-            line-height: 1.9;
-            font-weight: 400;
-        }
-
-        .welcome-close {
-            min-width: 112px;
-            min-height: 42px;
-            border: 0;
-            border-radius: 12px;
-            color: #fff;
-            background: var(--primary);
-            font: 500 0.96rem 'Segoe UI', Tahoma, Arial, sans-serif;
-            cursor: pointer;
-        }
-
-        .welcome-close:hover { background: var(--primary-dark); }
-
-        @keyframes topIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes dialogIn {
-            from { opacity: 0; transform: translateY(10px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .hero,
-            .toolbar,
-            .summary-row,
-            .footer-card,
-            .card,
-            .welcome-dialog {
-                animation: none !important;
-                opacity: 1;
-                transform: none;
-                transition: none !important;
-            }
-        }
-        /* Local Tajawal font: place Tajawal-Regular.ttf beside this index.php file. */
-        @font-face {
-            font-family: 'TajawalLocal';
-            src: url('Tajawal-Regular.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        body,
-        button,
-        input {
-            font-family: 'TajawalLocal', 'Segoe UI', Tahoma, Arial, sans-serif;
-        }
-
-        h1,
-        .card-title,
-        .footer-card,
-        .visits-counter-number {
-            font-family: 'TajawalLocal', 'Segoe UI', Tahoma, Arial, sans-serif;
-        }
-
-        h1,
-        .badge-top,
-        .visits-counter-label,
-        .card-title,
-        .btn,
-        .summary-row,
-        .footer-card {
-            font-weight: 500;
-        }
-
-        .welcome-title,
-        .welcome-message {
-            font-family: 'TajawalLocal', 'Segoe UI', Tahoma, Arial, sans-serif;
-            font-weight: 400;
-        }
-        /* Requested font weights. With only Regular installed, browsers synthesize these weights. */
-        h1 {
-            font-weight: 800;
-        }
-
-        .card-title {
-            font-weight: 700;
-        }
-        /* Footer ownership card. */
-        .footer-card {
-            font-weight: 500;
-            flex-wrap: wrap;
-        }
-
-        .main-site-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            min-height: 38px;
-            padding: 7px 12px;
-            border-radius: 12px;
-            color: var(--primary-dark);
-            background: var(--primary-soft);
-            border: 1px solid rgba(22, 160, 100, 0.22);
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-        }
-
-        .main-site-link:hover {
-            background: #ffffff;
-            border-color: rgba(22, 160, 100, 0.42);
-            transform: translateY(-1px);
-        }
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const welcomeOverlay = document.getElementById('welcome-overlay');
-            const welcomeClose = document.getElementById('welcome-close');
-            const welcomeStorageKey = 'welcomeDisplayedMonth';
-            const currentMonthKey = new Date().toISOString().slice(0, 7);
-
-            function getWelcomeMonth() {
-                try { return localStorage.getItem(welcomeStorageKey); } catch (error) { return null; }
-            }
-
-            function setWelcomeMonth() {
-                try { localStorage.setItem(welcomeStorageKey, currentMonthKey); } catch (error) {}
-            }
-
-            if (welcomeOverlay && getWelcomeMonth() !== currentMonthKey) {
-                requestAnimationFrame(function() {
-                    welcomeOverlay.classList.add('is-visible');
-                    welcomeOverlay.removeAttribute('aria-hidden');
-                });
-            }
-
-            function closeWelcome() {
-                if (!welcomeOverlay) return;
-                setWelcomeMonth();
-                welcomeOverlay.classList.remove('is-visible');
-                welcomeOverlay.setAttribute('aria-hidden', 'true');
-            }
-
-            if (welcomeClose) welcomeClose.addEventListener('click', closeWelcome);
-            if (welcomeOverlay) {
-                welcomeOverlay.addEventListener('click', function(event) {
-                    if (event.target === welcomeOverlay) closeWelcome();
+        window.addEventListener('load', function() {
+            if (typeof Swal !== 'undefined' && !sessionStorage.getItem('popupDisplayed')) {
+                Swal.fire({
+                    title: '<span class="swal2-title-custom">مرحبًا</span>',
+                    html: '<span class="swal2-html-custom">نهديكم هذا العمل بكل حب واهتمام، آملين أن يعكس روح الإبداع ويكون تجربة مميزة لكم، وأن يترك بصمة جميلة لدى المستخدمين. <br><br>تصميم وتنفيذ: م. فراس محمد سحويل</span>',
+                    icon: 'success',
+                    confirmButtonText: 'حسنًا',
+                    customClass: { confirmButton: 'swal2-confirm-button-custom' }
+                }).then(function() {
+                    sessionStorage.setItem('popupDisplayed', 'true');
                 });
             }
 
@@ -768,26 +534,6 @@
             const cards = Array.from(document.querySelectorAll('.card'));
             const visibleCount = document.getElementById('visible-count');
             const emptyState = document.getElementById('empty-state');
-
-            const revealCard = function(card) {
-                card.classList.add('is-visible');
-            };
-
-            let revealObserver = null;
-            if ('IntersectionObserver' in window) {
-                revealObserver = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            revealCard(entry.target);
-                            revealObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { rootMargin: '0px 0px 90px 0px', threshold: 0.08 });
-
-                cards.forEach(function(card) { revealObserver.observe(card); });
-            } else {
-                cards.forEach(revealCard);
-            }
 
             const visitsCounter = document.getElementById('visits-counter');
             const visitsCounterCard = document.getElementById('visits-counter-card');
@@ -823,7 +569,7 @@
             updateVisitsCounter(false);
             setInterval(function() {
                 updateVisitsCounter(true);
-            }, 45000);
+            }, 20000);
 
             function normalizeText(value) {
                 return (value || '')
@@ -837,17 +583,14 @@
             }
 
             function filterCards() {
-                const filter = normalizeText(searchInput ? searchInput.value : '');
+                const filter = normalizeText(searchInput.value);
                 let count = 0;
 
                 cards.forEach(function(card) {
                     const text = normalizeText(card.getAttribute('data-search'));
                     const match = !filter || text.includes(filter);
                     card.style.display = match ? 'flex' : 'none';
-                    if (match) {
-                        count++;
-                        if (filter) revealCard(card);
-                    }
+                    if (match) count++;
                 });
 
                 if (visibleCount) visibleCount.textContent = count;
@@ -860,13 +603,6 @@
     </script>
 </head>
 <body>
-    <div class="welcome-overlay" id="welcome-overlay" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-hidden="true">
-        <div class="welcome-dialog">
-            <h2 class="welcome-title" id="welcome-title">&#1605;&#1585;&#1581;&#1576;&#1611;&#1575;</h2>
-            <p class="welcome-message">&#1607;&#1584;&#1575; &#1575;&#1604;&#1605;&#1608;&#1602;&#1593; &#1589;&#1583;&#1602;&#1577; &#1580;&#1575;&#1585;&#1610;&#1577; &#1593;&#1606; &#1585;&#1608;&#1581; &#1608;&#1575;&#1604;&#1583;&#1610; &#1575;&#1604;&#1588;&#1607;&#1610;&#1583; &#1601;&#1585;&#1610;&#1583; &#1575;&#1604;&#1587;&#1606;&#1603;&#1585;&#1610;&#1548; &#1583;&#1593;&#1608;&#1575;&#1578;&#1603;&#1605; &#1604;&#1607; &#1576;&#1575;&#1604;&#1585;&#1581;&#1605;&#1577; &#1608;&#1575;&#1604;&#1605;&#1594;&#1601;&#1585;&#1577;.</p>
-            <button class="welcome-close" id="welcome-close" type="button">&#1581;&#1587;&#1606;&#1611;&#1575;</button>
-        </div>
-    </div>
 
 
 
@@ -878,7 +614,7 @@
                     <span class="visits-counter-icon" aria-hidden="true">👁️</span>
                     <span class="visits-counter-content">
                         <span class="visits-counter-label">عدد الزيارات</span>
-                        <span class="visits-counter-number" id="visits-counter">174,220</span>
+                        <span class="visits-counter-number" id="visits-counter">12567,942</span>
                     </span>
                 </div>
             </div>
@@ -894,34 +630,35 @@
         </section>
 
         <div class="summary-row">
-            <span class="summary-pill">📌 عدد الروابط: 87</span>
-            <span class="summary-pill">👁️ النتائج الظاهرة: <span id="visible-count">87</span></span>
+            <span class="summary-pill">📌 عدد الروابط: 85</span>
+            <span class="summary-pill">👁️ النتائج الظاهرة: <span id="visible-count">85</span></span>
         </div>
 
         <section class="cards-grid" aria-label="قائمة الروابط">
-                                            <article class="card new-card" data-search="التسجيل في اللجنة المصرية 27-05-2026">
-                                            <span class="new-label">جديد</span>
-                    
-                    <h2 class="card-title">التسجيل في اللجنة المصرية</h2>
+            <article class="card new-card" data-search="حسابي الرسمي على الفيس بوك">
+    <span class="new-label">جديد</span>
 
-                    <div class="card-actions">
-                        <a href="https://egycom.org/aid/data_form" class="btn" target="_blank" rel="noopener noreferrer">فتح الرابط ←</a>
-                                                    <span class="link-date">🗓️ تاريخ الإضافة: 27-05-2026</span>
-                                            </div>
-                </article>
-                                            <article class="card new-card" data-search="التسجيل في جمعية أصيل للتنمية الخيرية 24-05-2026">
-                                            <span class="new-label">جديد</span>
-                    
-                    <h2 class="card-title">التسجيل في جمعية أصيل للتنمية الخيرية</h2>
+    <div class="card-icon">
+        <i class="fab fa-facebook-messenger"></i>
+    </div>
 
-                    <div class="card-actions">
-                        <a href="https://alaseel-aid-tracker.lovable.app/register.html" class="btn" target="_blank" rel="noopener noreferrer">فتح الرابط ←</a>
-                                                    <span class="link-date">🗓️ تاريخ الإضافة: 24-05-2026</span>
-                                            </div>
-                </article>
-                                            <article class="card new-card" data-search="ابحث بالاسم عن شهداء قطاع غزة 24-04-2026">
-                                            <span class="new-label">جديد</span>
-                    
+    <h2 class="card-title">تواصل معي عبر الفيس بوك</h2>
+
+    <p class="card-description">
+        اضغط للدخول مباشرة إلى حسابي والتواصل معي بسهولة.
+    </p>
+
+    <div class="card-actions">
+        <a href="https://m.me/Abumohammed.xp"
+           class="btn"
+           target="_blank"
+           rel="noopener noreferrer">
+           فتح الحساب ←
+        </a>
+
+        <span class="link-date">🗓️ تاريخ الإضافة: 23-05-2026</span>
+  
+                                                
                     <h2 class="card-title">ابحث بالاسم عن شهداء قطاع غزة</h2>
 
                     <div class="card-actions">
@@ -1751,11 +1488,7 @@
         <div id="empty-state" class="empty-state">لا توجد نتائج مطابقة لعبارة البحث الحالية.</div>
 
         <footer class="footer-card">
-            <span>&copy; &#1578;&#1589;&#1605;&#1610;&#1605; &#1575;&#1604;&#1571;&#1587;&#1578;&#1575;&#1584; &#1576;&#1603;&#1585; &#1601;&#1585;&#1610;&#1583; &#1575;&#1604;&#1587;&#1606;&#1603;&#1585;&#1610;</span>
-            <a class="main-site-link" href="https://baker-sankari.com/" target="_blank" rel="noopener noreferrer" aria-label="&#1575;&#1604;&#1584;&#1607;&#1575;&#1576; &#1604;&#1604;&#1605;&#1608;&#1602;&#1593; &#1575;&#1604;&#1585;&#1574;&#1610;&#1587;&#1610;">
-                <span aria-hidden="true">&#8599;</span>
-                <span>&#1604;&#1604;&#1584;&#1607;&#1575;&#1576; &#1604;&#1604;&#1605;&#1608;&#1602;&#1593; &#1575;&#1604;&#1585;&#1574;&#1610;&#1587;&#1610; &#1575;&#1590;&#1594;&#1591; &#1607;&#1606;&#1575;</span>
-            </a>
+            <span>© تصميم المهندس فراس محمد سحويل </span>
 
         </footer>
     </main>
